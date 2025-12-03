@@ -1,60 +1,99 @@
-export function Login(){
-    return(
+import { Mail, Lock } from "lucide-react";
+import {useState} from "react";
+
+export function Login() {
+    const [isLoading, setIsLoading] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = ()=>{}
+
+    return (
         <>
-            <div className="bg-zinc-950 w-full min-h-screen flex flex-col md:flex-row  justify-center">
-            {/* Left image hidden on mobile*/}
-                <div className="hidden md:block relative overflow-hidden w-1/2">
+            <div className="bg-zinc-950 w-full min-h-screen flex flex-col md:flex-row justify-center">
+
+                {/* LEFT IMAGE — hidden on mobile */}
+                <div className="hidden md:block relative w-1/2 overflow-hidden">
                     <img
-                        className="h-full w-full object-cover opacity-20 grayscale-50"
-                        src="https://images.unsplash.com/photo-1629339942248-45d4b10c8c2f?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt = "Trading floor"
+                        className="h-full w-full object-cover opacity-20"
+                        src="https://images.unsplash.com/photo-1629339942248-45d4b10c8c2f?q=80&w=872&auto=format&fit=crop"
+                        alt="Trading floor"
                     />
-                    <div className="absolute bottom-10 left-0 p-12 z-20 text-white min-w-[500px]">
-                        <p className="text-xl mb-4">TurnTrade</p>
-                        <p className="text-4xl font-bold mb-4">Trade With Confidence</p>
-                        <p className={"text-lg text-zinc-300"}>Join thousands of traders executing their strategies on our professional platform</p>
 
+                    {/* Indigo overlay */}
+                    <div className="absolute inset-0 bg-indigo-500/50 mix-blend-multiply"></div>
+
+                    <div className="absolute bottom-10 left-10 text-white max-w-md z-10">
+                        <p className="text-xl mb-3">TurnTrade</p>
+                        <p className="text-4xl font-bold leading-tight mb-3">
+                            Trade With Confidence
+                        </p>
+                        <p className="text-lg text-zinc-300">
+                            Join thousands of traders executing their strategies on our professional platform.
+                        </p>
                     </div>
-
                 </div>
-            {/* Right side for the form   */}
-                <div
-                    className=" w-full md:w-1/2 flex justify-center items-center text-white">
 
-                    <form className="bg-zinc-900/40 backdrop-blur-2xl min-w-4/7 border border-white/5 p-10 rounded-2xl space-y-5 shadow-2xl">
+                {/* RIGHT SIDE — form centered on all screens */}
+                <div className="w-full md:w-1/2 flex justify-center items-center px-4 py-10">
+
+                    <form
+                        onSubmit={handleSubmit}
+                        className="bg-zinc-900/40 hover:bg-zinc-900/60 backdrop-blur-2xl w-full max-w-md border border-white/5 p-8 md:p-10 space-y-7 rounded-2xl  shadow-xl">
+
+                        {/* Header */}
                         <div className="text-white text-center md:text-left">
                             <p className="text-3xl font-bold">Welcome Back</p>
                             <p className="text-zinc-500">Sign in to your TurnTrade account</p>
                         </div>
-                        <div>
-                            <label> Email Address</label>
-                            <input
-                            type="email"
-                            name="email"
-                            placeholder="Enter your email Address"
-                            className="w-full border-1 p-2 rounded"
-                            />
+
+                        {/* Email */}
+                        <div >
+                            <label className="text-sm text-zinc-300  ">Email Address</label>
+                            <div className="relative">
+                                <Mail  className="absolute left-3 top-4.5 h-4 w-4 text-zinc-500" />
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className="w-full pl-10 border  border-white/10 p-3 rounded bg-black/20 text-white focus:outline-none
+                                                focus:ring-1 focus:ring-indigo-500 "
+                                />
+                            </div>
                         </div>
 
+                        {/* Password */}
                         <div>
-                            <label> Password</label>
-                            <input
-                            type="password"
-                            name="password"
-                            placeholder="Enter your password"
-                            className="w-full border-1 p-2 rounded"
-                            />
+                            <label className="text-sm text-zinc-300">Password</label>
+                            <div className="relative">
+                                <Lock className="absolute left-3 top-4 h-4 w-4 text-zinc-500" />
+                                <input
+                                    type="password"
+                                    placeholder="Enter your password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className="w-full pl-10 border  border-white/10 p-3 rounded bg-black/20 text-white focus:outline-none
+                                                focus:ring-1 focus:ring-indigo-500 "                                />
+                            </div>
                         </div>
 
+                        {/* Button */}
                         <button
-                            className="w-full border p-2 rounded"
-                        >Sign In</button>
+                            type={"submit"}
+                            className="w-full p-3 rounded-lg bg-indigo-600 hover:bg-indigo-500 transition font-medium text-white">
+                            {isLoading?"Signing In":"Sign In"}
+                        </button>
+
+                        {/* Footer text */}
+                        <div className="text-center text-sm text-zinc-500 p-5 border-0  border-t-1 border-t-zinc-800">
+                            Don’t have an account?{" "}
+                            <span className="text-indigo-400 hover:underline cursor-pointer">Sign up</span> {/*will adjust later to a link*/}
+                            <p className="text-indigo-400 hover:underline cursor-pointer mt-4">Forgot password?</p> {/*will adjust later to a link*/}
+                        </div>
 
                     </form>
-
                 </div>
-
-
             </div>
         </>
     );
