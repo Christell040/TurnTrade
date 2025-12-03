@@ -1,11 +1,18 @@
-import { Mail, Lock } from "lucide-react";
+import {Mail, Lock, User} from "lucide-react";
 import {useState} from "react";
 import Logo from "../assets/Logo.tsx"
 
-export function Login() {
+
+
+
+export default  function SignUp() {
     const [isLoading, setIsLoading] = useState(false);
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+
 
     const handleSubmit = ()=>{
         setIsLoading(true);
@@ -26,7 +33,7 @@ export function Login() {
                     {/* Lime overlay */}
                     <div className="absolute inset-0 bg-lime-200 mix-blend-multiply"></div>
 
-                    <div className="absolute bottom-10 left-10 text-white max-w-md z-10">
+                    <div className="absolute bottom-20 left-10 text-white max-w-md z-10">
                         <p className="text-xl "> <Logo width={200} height={200} /> </p>
                         <p className="text-4xl font-bold leading-tight mb-3">
                             <span className="text-lime-500">Trade</span> With Confidence
@@ -46,8 +53,40 @@ export function Login() {
 
                         {/* Header */}
                         <div className="text-white text-center md:text-left">
-                            <p className="text-3xl font-bold">Welcome Back</p>
-                            <p className="text-zinc-500">Sign in to your TurnTrade account</p>
+                            <p className="text-3xl font-bold">Create Account</p>
+                            <p className="text-zinc-500">Join TurnTrade and start trading</p>
+                        </div>
+
+                        {/*For First name and last name*/}
+                        <div className="flex gap-4">
+                            <div >
+                                <label className="text-sm text-zinc-300  ">First Name</label>
+                                <div className="relative">
+                                    <User  className="absolute left-3 top-4.5 h-4 w-4 text-zinc-500" />
+                                    <input
+                                        type="text"
+                                        placeholder="First name"
+                                        value={firstName}
+                                        onChange={(e) => setFirstName(e.target.value)}
+                                        className="w-full pl-10 border  border-white/10 p-3 rounded bg-black/20 text-white focus:outline-none
+                                                focus:ring-1 focus:ring-lime-500 "
+                                    />
+                                </div>
+                            </div>
+                            <div >
+                                <label className="text-sm text-zinc-300  ">Last Name</label>
+                                <div className="relative">
+                                    <User className="absolute left-3 top-4.5 h-4 w-4 text-zinc-500" />
+                                    <input
+                                        type="text"
+                                        placeholder="Last name"
+                                        value={lastName}
+                                        onChange={(e) => setLastName(e.target.value)}
+                                        className="w-full pl-10 border  border-white/10 p-3 rounded bg-black/20 text-white focus:outline-none
+                                                focus:ring-1 focus:ring-lime-500 "
+                                    />
+                                </div>
+                            </div>
                         </div>
 
                         {/* Email */}
@@ -85,14 +124,13 @@ export function Login() {
                         <button
                             type={"submit"}
                             className="w-full p-3 rounded-lg bg-lime-600 hover:bg-lime-500 transition font-medium text-white">
-                            {isLoading?"Signing In":"Sign In"}
+                            {isLoading?"Signing Up":"Sign Up"}
                         </button>
 
                         {/* Footer text */}
                         <div className="text-center text-sm text-zinc-500 p-5 border-0  border-t-1 border-t-zinc-800">
-                            Don’t have an account?{" "}
-                            <span className="text-lime-600 hover:underline cursor-pointer">Sign up</span> {/*will adjust later to a link*/}
-                            <p className="text-lime-600 hover:underline cursor-pointer mt-4">Forgot password?</p> {/*will adjust later to a link*/}
+                            Already have an account?{" "}
+                            <span className="text-lime-600 hover:underline cursor-pointer">Sign in</span> {/*will adjust later to a link*/}
                         </div>
 
                     </form>
