@@ -1,3 +1,21 @@
 @import "tailwindcss";
 
 
+.glass-card {
+    @apply rounded-2xl bg-gradient-to-br from-zinc-900/80 to-zinc-900/40 border border-zinc-800/60 backdrop-blur-sm;
+}
+/* src/index.css */
+
+::-webkit-scrollbar {
+    height: 6px;
+    /*width: 6px;*/
+}
+
+::-webkit-scrollbar-thumb {
+    background: #f5f6fa; /* zinc-700 */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
