@@ -8,7 +8,7 @@ export default function Header({setSidebarOpen}:headerProps) {
     return (
         <>
             <header className=" border-b border-white/10 h-16 w-full flex items-center px-4 gap-4  backdrop-blur-xl
-                                     justify-between sticky top-0 z-30
+                                     justify-between sticky top-0 z-30 bg-zinc-950
                 ">
 
                 {/* Hamburger mobile only */}

@@ -10,7 +10,7 @@ export default function Dashboard(){
     ];
     return (
         <>
-            <div className="flex-1 overflow-y-auto  p-4 text-white">
+            <div className="flex-1 overflow-y-auto  p-4 text-white animate-fade-up">
                 {/*1st row - Greetings and stuff*/}
                 <div className="flex flex-col gap-5 md:flex-row justify-between mb-8">
                     <div>

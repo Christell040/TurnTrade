@@ -12,13 +12,13 @@ export default function PrimaryLayout() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     return (
-        <div className="flex flex-col w-full md:flex-row overflow-hidden bg-zinc-950 min-h-screen relative">
+        <div className="flex w-full md:flex-row  bg-zinc-950 min-h-screen relative">
 
 
             <SideBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
             {/* Main section */}
-            <main className="flex flex-1 flex-col relative">
+            <main className="flex flex-1 flex-col relative overflow-y-auto h-screen">
 
                 {/* Header */}
                 <Header setSidebarOpen={setSidebarOpen} />

@@ -33,7 +33,7 @@ export default function SideBar({sidebarOpen,setSidebarOpen}:sidebarProps) {
 
             {/* Sidebar */}
             <aside
-                className={`flex flex-col justify-between fixed md:static z-40 px-2 border-r border-white/10 w-64 min-h-screen transform transition-transform duration-100 
+                className={`flex flex-col h-screen justify-between fixed md:static z-40 px-2 border-r border-white/10 w-64 min-h-screen transform transition-transform duration-100 
                 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"} 
                 md:translate-x-0`} >
                 <nav>
